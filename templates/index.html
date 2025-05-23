@@ -1,0 +1,52 @@
+<html>
+<!-- https://www.perplexity.ai/search/hey-see-this-app-py-file-from-XFT8ofLOSdGhgf0Wj6cz6Q -->
+
+<head>
+    <link rel="stylesheet" href="../static/style.css">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Vanta.js effect (e.g., birds, fog, waves) -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container" id="vanta-bg">
+        <div id="heading">
+            <h2>Convert Your Jupyter Files to Pdf</h2>
+        </div>
+        <div id="content">
+            <form method="post" enctype="multipart/form-data">
+                <label>Select one or more .ipynb files:</label>
+                <label for="fileSelect" id="selectedfile" class="fileLable">Files</label>
+                <input type="file" id="fileSelect" name="notebooks" multiple accept=".ipynb">
+                <button type="button" id="fileConvertTrigger" class="fileLable">Convert</button>
+                <button id="downloadBtn" class="fileLable" type="button" disabled>Download PDF</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        VANTA.FOG({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 400.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 3.00,
+            highlightColor: 0x9966cc,   // Brightest parts
+            midtoneColor: 0xe6e6fa,     // Main body color
+            lowlightColor: 0xC8A2C8,
+            blurFactor: 0.5,
+            speed: 3,
+            baseColor: 0x191970
+        });
+    </script>
+
+    <script src="../static/main.js"></script>
+</body>
+
+</html>
