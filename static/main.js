@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Disable download during processing
         downloadBtn.disabled = true;
         downloadBtn.innerText = "Processing...";
 
@@ -29,15 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error(await response.text());
             }
 
-            // Convert PDF response to Blob and create a download link
             const blob = await response.blob();
             const downloadUrl = window.URL.createObjectURL(blob);
 
-            // Update download button
             downloadBtn.disabled = false;
             downloadBtn.innerText = "Download PDF";
 
-            // Set up click to download and trigger cleanup
             downloadBtn.onclick = () => {
                 const a = document.createElement("a");
                 a.href = downloadUrl;
@@ -46,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 a.click();
                 a.remove();
 
-                // Tell server to delete the file
                 fetch("/delete", { method: "POST" });
             };
         } catch (err) {
